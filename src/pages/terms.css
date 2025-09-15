@@ -19,9 +19,9 @@
 .terms-content {
   position: relative;
   z-index: 2;
-  padding: 0;
-  width: 100%;
-  max-width: 100%;
+  width: min(70%, 1000px);
+  margin: 5rem auto 0;
+  padding-bottom: 0.25rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -31,8 +31,8 @@
 }
 
 .terms-container {
-  max-width: 800px;
   width: 100%;
+  max-width: 750px;
   background: white;
   border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -156,15 +156,17 @@
     background-attachment: fixed;
   }
 
-  .term-content {
+  .terms-content {
     width: 90%;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 
   .terms-container {
     border-radius: 20px;
     width: 100%;
     padding: 30px 20px;
+    max-width: 100%;
+    margin-top: 28px;
     margin-bottom: 16px;
   }
 
@@ -177,6 +179,9 @@
     padding: 10px 20px;
     font-size: 14px;
     margin-bottom: 25px;
+    width: 50%;
+    min-width: max-content;
+    max-width: 270px;
   }
 
 
@@ -185,4 +190,37 @@
     margin-bottom: 8px;
   }
 
+}
+
+@media (min-width: 675px) and (max-width: 1290px) {
+  .terms-content {
+    width: 90%;
+    margin-top: 40px;
+  }
+
+  .terms-container {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 2550px) {
+  .terms-content {
+    width: 1000px;
+    font-size: 20px;
+  }
+
+  .terms-container {
+    max-width: 1000px;
+  }
+}
+
+@media (min-width: 3430px) {
+  .terms-content {
+    width: 1200px;
+    font-size: 24px;
+  }
+
+  .terms-container {
+    max-width: 1200px;
+  }
 }
