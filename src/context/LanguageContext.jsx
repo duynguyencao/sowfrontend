@@ -1,10 +1,10 @@
 import { createContext, useContext, useState } from 'react';
 
-const LanguageContext = createContext(undefined);
+const LanguageContext = createContext();
 
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useLanguage must be used within a LanguageProvider');
   }
   return context;
@@ -13,14 +13,9 @@ export const useLanguage = () => {
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState('en');
 
-  const toggleLanguage = () => {
-    setLanguage(prev => prev === 'en' ? 'sv' : 'en');
-  };
-
   const value = {
     language,
     setLanguage,
-    toggleLanguage,
   };
 
   return (

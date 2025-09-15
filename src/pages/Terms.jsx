@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { termsAPI } from '../services/api.js';
+import { termsAPI } from '../services/api';
 import './terms.css';
 
 const TermsPage = () => {
@@ -24,7 +24,7 @@ const TermsPage = () => {
     };
 
     fetchTerms();
-  }, []);
+  }, [language]);
 
   if (loading) {
     return (
@@ -49,49 +49,27 @@ const TermsPage = () => {
 
   return (
     <div className="terms-page">
-      <div className="terms-hero">
-        <div className="hero-content">
-          <h1 className="hero-title">
-            {language === 'en' ? 'Terms and Conditions' : 'Villkor'}
-          </h1>
-          <p className="hero-subtitle">
-            {language === 'en'
-              ? 'Please read these terms carefully before using our services'
-              : 'Läs dessa villkor noggrant innan du använder våra tjänster'
-            }
-          </p>
-        </div>
-      </div>
       <div className="terms-content">
+        <h1 className="terms-title">
+          {language === 'en' ? 'Terms' : 'Villkor'}
+        </h1>
+        <button className="close-button">
+          {language === 'en' ? 'Close and Go Back' : 'Stäng och gå tillbaka'}
+        </button>
+
         <div className="terms-container">
-          {termsData.map((term) => (
-            <section key={term.id} className="terms-section">
-              <h2 className="section-title">
-                {language === 'en' ? term.title_en : term.title_sv}
-              </h2>
-              <div className="section-content">
-                <p>{language === 'en' ? term.content_en : term.content_sv}</p>
+          <div className="terms-text">
+            {termsData.map((term) => (
+              <div key={term.id} className="term-section">
+                <h2 className="term-title">
+                  {language === 'en' ? term.title_en : term.title_sv}
+                </h2>
+                <div className="term-content">
+                  <p>{language === 'en' ? term.content_en : term.content_sv}</p>
+                </div>
               </div>
-            </section>
-          ))}
-          <section className="terms-section contact-section">
-            <h2 className="section-title">
-              {language === 'en' ? 'Contact Information' : 'Kontaktinformation'}
-            </h2>
-            <div className="section-content">
-              <p>
-                {language === 'en'
-                  ? 'If you have any questions about these terms and conditions, please contact us:'
-                  : 'Om du har några frågor om dessa villkor, vänligen kontakta oss:'
-                }
-              </p>
-              <div className="contact-info">
-                <p><strong>Email:</strong> support@123fakturera.se</p>
-                <p><strong>Phone:</strong> +46 123 456 789</p>
-                <p><strong>Address:</strong> 123 Business Street, Stockholm, Sweden</p>
-              </div>
-            </div>
-          </section>
+            ))}
+          </div>
         </div>
       </div>
     </div>

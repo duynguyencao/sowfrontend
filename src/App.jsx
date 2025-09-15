@@ -1,24 +1,33 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import Header from './components/Header';
-import Terms from './pages/Terms';
-import Pricelist from './pages/Pricelist';
+import TermsPage from './pages/Terms';
+import PricelistPage from './pages/Pricelist';
 import './App.css';
+
+function AppContent() {
+  const location = useLocation();
+  const isPricelistPage = location.pathname === '/pricelist';
+
+  return (
+    <div className="app">
+      {!isPricelistPage && <Header />}
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Navigate to="/terms" replace />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/pricelist" element={<PricelistPage />} />
+        </Routes>
+      </main>
+    </div>
+  );
+}
 
 function App() {
   return (
     <LanguageProvider>
       <Router>
-        <div className="app">
-          <Header />
-          <main className="main-content">
-            <Routes>
-              <Route path="/" element={<Navigate to="/terms" replace />} />
-              <Route path="/terms" element={<Terms />} />
-              <Route path="/pricelist" element={<Pricelist />} />
-            </Routes>
-          </main>
-        </div>
+        <AppContent />
       </Router>
     </LanguageProvider>
   );
