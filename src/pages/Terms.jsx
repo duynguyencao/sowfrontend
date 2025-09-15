@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { termsAPI } from '../services/api';
 import './terms.css';
+import Header from '../components/Header';
 
 const TermsPage = () => {
   const { language } = useLanguage();
