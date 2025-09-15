@@ -119,7 +119,6 @@
   background: #f8f9fa;
 }
 
-/* Layout */
 .pricelist-layout {
   display: flex;
   margin-top: 60px;
@@ -202,7 +201,6 @@
   text-align: center;
 }
 
-/* Main Content */
 .pricelist-main {
   flex: 1;
   margin-left: 250px;
@@ -210,7 +208,6 @@
   background: #f8f9fa;
 }
 
-/* Search and Action Bar */
 .pricelist-search-bar {
   background: white;
   padding: 20px;
@@ -323,7 +320,6 @@
   color: white;
 }
 
-/* Table */
 .pricelist-container {
   background: white;
   border-radius: 8px;
@@ -410,7 +406,6 @@
   cursor: pointer;
 }
 
-/* Column widths */
 .col-article {
   width: 15%;
 }
@@ -449,7 +444,6 @@
   color: #e74c3c;
 }
 
-/* Mobile Styles */
 @media (max-width: 768px) {
   .pricelist-header .hamburger {
     display: flex;
@@ -535,7 +529,6 @@
   }
 }
 
-/* Hide columns on smaller screens */
 @media (max-width: 1200px) {
 
   .col-stock,
@@ -560,7 +553,6 @@
   }
 }
 
-/* Desktop - Show sidebar by default */
 @media (min-width: 769px) {
   .sidebar {
     transform: translateX(0);

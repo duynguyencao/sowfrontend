@@ -1,13 +1,6 @@
-/* Terms Page - Responsive & Compatible CSS */
 .terms-page {
   min-height: 100vh;
   width: 100vw;
-  background: #2c3e50;
-  background-image: url('https://storage.123fakturera.se/public/wallpapers/sverige43.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   position: relative;
   overflow-x: hidden;
 }
@@ -19,14 +12,14 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.12);
   z-index: 1;
 }
 
 .terms-content {
   position: relative;
   z-index: 2;
-  padding: 80px 5% 60px;
+  padding: 0;
   width: 100%;
   max-width: 100%;
   display: flex;
@@ -47,11 +40,10 @@
   padding: 40px;
   margin-top: 0;
   margin-bottom: 20px;
-  /* create space above the bottom close button */
 }
 
 .terms-title {
-  font-size: 4rem;
+  font-size: 1.5em;
   font-weight: bold;
   color: white;
   text-align: center;
@@ -83,10 +75,6 @@
   background: #229954;
 }
 
-/* Ensure the second (bottom) Close button sits neatly below the content */
-.terms-content .close-button:last-of-type {
-  margin-top: 20px;
-}
 
 .terms-text {
   margin-top: 20px;
@@ -159,7 +147,6 @@
   margin: 0;
 }
 
-/* Mobile Styles (single breakpoint) */
 @media (max-width: 768px) {
   .terms-page {
     min-height: 100vh;
@@ -168,10 +155,7 @@
     background-attachment: fixed;
   }
 
-  .terms-content {
-    padding: 80px 3% 50px;
-    width: 100%;
-  }
+
 
   .terms-container {
     border-radius: 6px;
@@ -191,17 +175,10 @@
     margin-bottom: 25px;
   }
 
-  .terms-content .close-button:last-of-type {
-    margin-top: 16px;
-  }
 
   .term-title {
     font-size: 1.1rem;
     margin-bottom: 8px;
   }
 
-  .term-content {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
 }

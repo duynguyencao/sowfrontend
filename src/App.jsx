@@ -8,10 +8,11 @@ import './App.css';
 function AppContent() {
   const location = useLocation();
   const isPricelistPage = location.pathname === '/pricelist';
+  const isTermsPage = location.pathname === '/terms';
 
   return (
     <div className="app">
-      {!isPricelistPage && <Header />}
+      {!isPricelistPage && !isTermsPage && <Header />}
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Navigate to="/terms" replace />} />

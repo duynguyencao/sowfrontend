@@ -49,6 +49,7 @@ const TermsPage = () => {
 
   return (
     <div className="terms-page">
+      <Header />
       <div className="terms-content">
         <h1 className="terms-title">
           {language === 'en' ? 'Terms' : 'Villkor'}
@@ -61,12 +62,15 @@ const TermsPage = () => {
           <div className="terms-text">
             {termsData.map((term) => (
               <div key={term.id} className="term-section">
-                {/* <h2 className="term-title">
-                  {language === 'en' ? term.title_en : term.title_sv}
-                </h2> */}
-                <div className="term-content">
-                  <p>{language === 'en' ? term.content_en : term.content_sv}</p>
-                </div>
+                <div
+                  className="term-content"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      language === 'en'
+                        ? term.content_html_en || `<p>${term.content_en}</p>`
+                        : term.content_html_sv || `<p>${term.content_sv}</p>`,
+                  }}
+                />
               </div>
             ))}
           </div>

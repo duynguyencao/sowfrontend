@@ -1,9 +1,5 @@
-/* Header - Responsive & Compatible CSS */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   width: 100%;
   background: transparent;
   z-index: 1000;
@@ -51,7 +47,6 @@
 .logo-icon {
   height: 30px;
   width: auto;
-  /* preserve natural aspect ratio */
   display: block;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
@@ -203,7 +198,6 @@
   .logo-icon {
     height: 32px;
     width: auto;
-    /* preserve natural aspect ratio */
   }
 
   .nav {
