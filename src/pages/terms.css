@@ -46,6 +46,8 @@
   overflow: hidden;
   padding: 40px;
   margin-top: 0;
+  margin-bottom: 20px;
+  /* create space above the bottom close button */
 }
 
 .terms-title {
@@ -79,6 +81,11 @@
 
 .close-button:hover {
   background: #229954;
+}
+
+/* Ensure the second (bottom) Close button sits neatly below the content */
+.terms-content .close-button:last-of-type {
+  margin-top: 20px;
 }
 
 .terms-text {
@@ -170,6 +177,7 @@
     border-radius: 6px;
     width: 100%;
     padding: 30px 20px;
+    margin-bottom: 16px;
   }
 
   .terms-title {
@@ -181,6 +189,10 @@
     padding: 10px 20px;
     font-size: 14px;
     margin-bottom: 25px;
+  }
+
+  .terms-content .close-button:last-of-type {
+    margin-top: 16px;
   }
 
   .term-title {

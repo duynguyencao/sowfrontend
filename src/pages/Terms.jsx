@@ -61,9 +61,9 @@ const TermsPage = () => {
           <div className="terms-text">
             {termsData.map((term) => (
               <div key={term.id} className="term-section">
-                <h2 className="term-title">
+                {/* <h2 className="term-title">
                   {language === 'en' ? term.title_en : term.title_sv}
-                </h2>
+                </h2> */}
                 <div className="term-content">
                   <p>{language === 'en' ? term.content_en : term.content_sv}</p>
                 </div>
@@ -71,6 +71,10 @@ const TermsPage = () => {
             ))}
           </div>
         </div>
+
+        <button className="close-button">
+          {language === 'en' ? 'Close and Go Back' : 'Stäng och gå tillbaka'}
+        </button>
       </div>
     </div>
   );

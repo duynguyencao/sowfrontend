@@ -25,6 +25,22 @@ const Header = () => {
     setIsLanguageDropdownOpen(false);
   };
 
+  const navLabels = language === 'en'
+    ? {
+      home: 'Home',
+      order: 'Order',
+      customers: 'Our Customers',
+      about: 'About us',
+      contact: 'Contact Us',
+    }
+    : {
+      home: 'Hem',
+      order: 'Beställ',
+      customers: 'Våra Kunder',
+      about: 'Om oss',
+      contact: 'Kontakta oss',
+    };
+
   return (
     <header className="header">
       <div className="top-bar"></div>
@@ -40,17 +56,21 @@ const Header = () => {
             <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
           </button>
           <div className="logo">
-            <div className="logo-icon">💎</div>
+            <img
+              src="https://storage.123fakturera.se/public/icons/diamond.png"
+              alt="Logo"
+              className="logo-icon"
+            />
           </div>
         </div>
 
         <div className="header-right">
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
-            <Link to="/" className="nav-link">Home</Link>
-            <Link to="/pricelist" className="nav-link" onClick={closeMenu}>Order</Link>
-            <Link to="/" className="nav-link">Our Customers</Link>
-            <Link to="/" className="nav-link">About us</Link>
-            <Link to="/" className="nav-link">Contact Us</Link>
+            <Link to="/" className="nav-link">{navLabels.home}</Link>
+            <Link to="/pricelist" className="nav-link" onClick={closeMenu}>{navLabels.order}</Link>
+            <Link to="/" className="nav-link">{navLabels.customers}</Link>
+            <Link to="/" className="nav-link">{navLabels.about}</Link>
+            <Link to="/" className="nav-link">{navLabels.contact}</Link>
           </nav>
 
           <div className="language-selector">
@@ -59,6 +79,9 @@ const Header = () => {
               onClick={toggleLanguageDropdown}
               aria-label="Select language"
             >
+              <span className="language-text">
+                {language === 'en' ? 'English' : 'Svenska'}
+              </span>
               <img
                 src={language === 'en'
                   ? 'https://storage.123fakturere.no/public/flags/GB.png'
@@ -67,9 +90,6 @@ const Header = () => {
                 alt={language === 'en' ? 'English' : 'Swedish'}
                 className="flag-icon"
               />
-              <span className="language-text">
-                {language === 'en' ? 'English' : 'Svenska'}
-              </span>
             </button>
 
             {isLanguageDropdownOpen && (
@@ -104,5 +124,4 @@ const Header = () => {
     </header>
   );
 };
-
 export default Header;
