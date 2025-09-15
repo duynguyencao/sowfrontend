@@ -1,3 +1,4 @@
+/* Header - Responsive & Compatible CSS */
 .header {
   position: relative;
   width: 100%;
@@ -42,6 +43,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Hide logo when menu is open */
+.header.menu-open .logo {
+  display: none;
 }
 
 .logo-icon {
@@ -191,8 +197,9 @@
     gap: 15px;
   }
 
+  /* Hide logo on mobile to give space for hamburger */
   .logo {
-    font-size: 24px;
+    display: none;
   }
 
   .logo-icon {
@@ -201,41 +208,46 @@
   }
 
   .nav {
-    position: fixed;
+    position: absolute;
     top: 80px;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(10px);
+    left: 20px;
+    right: auto;
+    width: calc(100% - 40px);
+    max-width: 560px;
+    background: #fff;
+    color: #222;
     flex-direction: column;
-    padding: 30px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transform: translateY(-100%);
+    padding: 20px 24px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: scaleY(0);
+    transform-origin: top;
     opacity: 0;
     visibility: hidden;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    gap: 20px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    gap: 24px;
     z-index: 999;
   }
 
   .nav-open {
-    transform: translateY(0);
+    transform: scaleY(1);
     opacity: 1;
     visibility: visible;
   }
 
   .nav-link {
     width: 100%;
-    text-align: center;
-    padding: 15px 20px;
-    font-size: 16px;
+    text-align: left;
+    padding: 16px 8px;
+    font-size: 18px;
     border-radius: 8px;
-    transition: background 0.3s ease;
+    transition: background 0.2s ease, color 0.2s ease;
     white-space: nowrap;
+    color: #222;
   }
 
   .nav-link:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: #f5f5f5;
   }
 
   .hamburger {

@@ -42,7 +42,7 @@ const Header = () => {
     };
 
   return (
-    <header className="header">
+    <header className={`header ${isMenuOpen ? 'menu-open' : ''}`}>
       <div className="top-bar"></div>
       <div className="header-container">
         <div className="header-left">
@@ -66,11 +66,11 @@ const Header = () => {
 
         <div className="header-right">
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
-            <Link to="/" className="nav-link">{navLabels.home}</Link>
+            <Link to="/" className="nav-link" onClick={closeMenu}>{navLabels.home}</Link>
             <Link to="/pricelist" className="nav-link" onClick={closeMenu}>{navLabels.order}</Link>
-            <Link to="/" className="nav-link">{navLabels.customers}</Link>
-            <Link to="/" className="nav-link">{navLabels.about}</Link>
-            <Link to="/" className="nav-link">{navLabels.contact}</Link>
+            <Link to="/" className="nav-link" onClick={closeMenu}>{navLabels.customers}</Link>
+            <Link to="/" className="nav-link" onClick={closeMenu}>{navLabels.about}</Link>
+            <Link to="/" className="nav-link" onClick={closeMenu}>{navLabels.contact}</Link>
           </nav>
 
           <div className="language-selector">
@@ -98,25 +98,23 @@ const Header = () => {
                   className="language-option"
                   onClick={() => selectLanguage('en')}
                 >
-                  <span>English</span>
                   <img
                     src="https://storage.123fakturere.no/public/flags/GB.png"
                     alt="English"
                     className="flag-icon"
                   />
-                  
+                  <span>English</span>
                 </button>
                 <button
                   className="language-option"
                   onClick={() => selectLanguage('sv')}
                 >
-                  <span>Svenska</span>
                   <img
                     src="https://storage.123fakturere.no/public/flags/SE.png"
                     alt="Svenska"
                     className="flag-icon"
                   />
-                  
+                  <span>Svenska</span>
                 </button>
               </div>
             )}
