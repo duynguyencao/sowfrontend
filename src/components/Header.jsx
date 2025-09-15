@@ -98,23 +98,25 @@ const Header = () => {
                   className="language-option"
                   onClick={() => selectLanguage('en')}
                 >
+                  <span>English</span>
                   <img
                     src="https://storage.123fakturere.no/public/flags/GB.png"
                     alt="English"
                     className="flag-icon"
                   />
-                  <span>English</span>
+
                 </button>
                 <button
                   className="language-option"
                   onClick={() => selectLanguage('sv')}
                 >
+                  <span>Svenska</span>
                   <img
                     src="https://storage.123fakturere.no/public/flags/SE.png"
                     alt="Svenska"
                     className="flag-icon"
                   />
-                  <span>Svenska</span>
+
                 </button>
               </div>
             )}
