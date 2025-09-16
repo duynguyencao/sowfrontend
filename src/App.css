@@ -38,11 +38,6 @@ body {
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background-image: url('https://storage.123fakturera.se/public/wallpapers/sverige43.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   position: relative;
   overscroll-behavior-y: none;
 }
@@ -52,12 +47,26 @@ body {
   width: 100%;
   min-height: 100dvh;
   overscroll-behavior-y: none;
+  position: relative;
+  z-index: 1;
 }
 
-@media (max-width: 1024px) {
-  .app {
-    background-attachment: scroll;
-  }
+/* Universal fixed background layer */
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://storage.123fakturera.se/public/wallpapers/sverige43.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 @media (max-width: 768px) {
