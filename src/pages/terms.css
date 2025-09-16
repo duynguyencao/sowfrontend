@@ -149,7 +149,6 @@
 
 @media (max-width: 768px) {
   .terms-page {
-    background-attachment: scroll;
     min-height: 100dvh;
     overscroll-behavior-y: none;
     touch-action: pan-y;

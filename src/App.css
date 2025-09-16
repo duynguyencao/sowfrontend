@@ -57,8 +57,6 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   background-image: url('https://storage.123fakturera.se/public/wallpapers/sverige43.jpg');
   background-size: cover;
   background-position: center;
@@ -67,6 +65,22 @@ body {
   pointer-events: none;
   transform: translateZ(0);
   will-change: transform;
+}
+
+/* Prefer stable viewport units to avoid resize on browser UI hide/show */
+@supports (height: 100lvh) and (width: 100lvw) {
+  .app::before {
+    width: 100lvw;
+    height: 100lvh;
+  }
+}
+
+/* Fallback for browsers without large viewport units */
+@supports not (height: 100lvh) {
+  .app::before {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
 @media (max-width: 768px) {
