@@ -54,6 +54,12 @@ body {
   overscroll-behavior-y: none;
 }
 
+@media (max-width: 1024px) {
+  .app {
+    background-attachment: scroll;
+  }
+}
+
 @media (max-width: 768px) {
 
   html,
